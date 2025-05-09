@@ -17,11 +17,9 @@ app.listen(PORT, () => {
  console.log(`Server Started at ${PORT}`)
 })
 // Obtendo os parametros passados pela linha de comando
-var userArgs = process.argv.slice(2);
-var mongoURL = userArgs[0];
+const mongoURL = process.env.MONGO_URL;
 //Configurando a conexao com o Banco de Dados
 var mongoose = require('mongoose');
-var mongoURL = process.env.MONGO_DB;
 mongoose.connect(mongoURL);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
