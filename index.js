@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
-const routes = require('D:/WEB_workspace/BACKEND/API/routes/routes');
+const routes = require('. /routes/routes.js');
 app.use('/api', routes);
 app.listen(PORT, () => {
  console.log(`Server Started at ${PORT}`)
@@ -21,6 +21,7 @@ var userArgs = process.argv.slice(2);
 var mongoURL = userArgs[0];
 //Configurando a conexao com o Banco de Dados
 var mongoose = require('mongoose');
+var mongoURL = process.env.MONGO_DB;
 mongoose.connect(mongoURL);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
